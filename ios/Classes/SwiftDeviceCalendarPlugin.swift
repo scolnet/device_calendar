@@ -1078,6 +1078,12 @@ public class SwiftDeviceCalendarPlugin: NSObject, FlutterPlugin, EKEventViewDele
             return status == EKAuthorizationStatus.authorized
         }
     }
+
+    private func requestPermissions(_ result: @escaping FlutterResult) {
+        if hasEventPermissions()  {
+            result(true)
+        }
+    }
 }
 
 extension Date {
